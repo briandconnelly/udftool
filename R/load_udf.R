@@ -1,11 +1,13 @@
 #' @title Load (i.e., create) a user-defined function
 #'
 #' @description
-#' \code{load_udf} execucutes a \code{CREATE FUNCTION} statement to load a user-defined function on a given database server.
+#' `load_udf()` executes a `CREATE FUNCTION` statement to load a user-defined
+#' function on a given database server.
 #'
-#' @param udf A \code{\link{udf}} object
-#' @param conn A \link[DBI]{DBIConnection-class} object, as returned by \link[DBI]{dbConnect}
-#' @param test Whether or not to run tests after loading (default: \code{TRUE})
+#' @param udf A [`udf`] object
+#' @param conn A [`DBI::DBIConnection-class`] object, as returned by
+#' [`DBI::dbConnect()`]
+#' @param test Whether or not to run tests after loading (default: `TRUE`)
 #'
 #' @export
 #'
@@ -28,8 +30,7 @@ load_udf <- function(udf, conn, test = TRUE) {
             )
         },
         error = function(e) {
-            cli::cli_alert_danger("Error loading {.file {udf$full_name}}: ")
-            stop(e)
+            cli::cli_abort("Error loading {.file {udf$full_name}}: {e}")
         }
     )
 

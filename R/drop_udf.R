@@ -1,10 +1,9 @@
 #' @title Drop (i.e., delete) a UDF
 #'
 #' @description
-#' \code{drop_udf} TODO
+#' `drop_udf()` deletes a UDF
 #'
-#' @param udf A \code{\link{udf}} object
-#' @param conn A \link[DBI]{DBIConnection-class} object, as returned by \link[DBI]{dbConnect}
+#' @inheritParams load_udf
 #' @param cascade TODO
 #'
 #' @return TODO
@@ -30,8 +29,7 @@ drop_udf <- function(udf, conn, cascade = FALSE) {
             )
         },
         error = function(e) {
-            cli::cli_alert_danger("Error dropping {.file {udf$full_name}}: ")
-            stop(e)
+            cli::cli_abort("Error dropping {.file {udf$full_name}}: {e}")
         }
     )
 

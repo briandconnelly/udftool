@@ -1,8 +1,8 @@
 #' @title User Defined Function (UDF) parameter object
 #'
 #' @description
-#' \code{udfparameter} objects store details about parameters to user-defined functions.
-#' Each \code{udfparameter} object has the following properties:
+#' `udfparameter` objects store details about parameters to user-defined
+#' functions. Each `udfparameter` object has the following properties:
 #'
 #' \describe{
 #'   \item{name}{Parameter's name (e.g., \code{"Sepal.Length"})}
@@ -61,7 +61,7 @@ udfparameter <- R6Class(
 #' @param x An object
 #' @export
 is_udfparameter <- function(x) {
-    inherits(x, "udfparameter")
+    rlang::inherits_any(x, "udfparameter")
 }
 
 #' @export

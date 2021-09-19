@@ -9,10 +9,11 @@ test_udf(udf, conn)
 \arguments{
 \item{udf}{A \code{\link{udf}} object}
 
-\item{conn}{A \link[DBI]{DBIConnection-class} object, as returned by \link[DBI]{dbConnect}}
+\item{conn}{A \code{\link[DBI:DBIConnection-class]{DBI::DBIConnection}} object, as returned by
+\code{\link[DBI:dbConnect]{DBI::dbConnect()}}}
 }
 \description{
-\code{test_udf} TODO
+\code{test_udf()} TODO
 }
 \examples{
 \dontrun{

@@ -9,12 +9,14 @@ load_udf(udf, conn, test = TRUE)
 \arguments{
 \item{udf}{A \code{\link{udf}} object}
 
-\item{conn}{A \link[DBI]{DBIConnection-class} object, as returned by \link[DBI]{dbConnect}}
+\item{conn}{A \code{\link[DBI:DBIConnection-class]{DBI::DBIConnection}} object, as returned by
+\code{\link[DBI:dbConnect]{DBI::dbConnect()}}}
 
 \item{test}{Whether or not to run tests after loading (default: \code{TRUE})}
 }
 \description{
-\code{load_udf} execucutes a \code{CREATE FUNCTION} statement to load a user-defined function on a given database server.
+\code{load_udf()} executes a \verb{CREATE FUNCTION} statement to load a user-defined
+function on a given database server.
 }
 \examples{
 \dontrun{

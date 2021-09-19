@@ -1,10 +1,9 @@
 #' @title Run a UDF's tests
 #'
 #' @description
-#' \code{test_udf} TODO
+#' `test_udf()` TODO
 #'
-#' @param udf A \code{\link{udf}} object
-#' @param conn A \link[DBI]{DBIConnection-class} object, as returned by \link[DBI]{dbConnect}
+#' @inheritParams load_udf
 #'
 #' @import cli
 #' @export

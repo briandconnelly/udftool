@@ -9,7 +9,8 @@ drop_udf(udf, conn, cascade = FALSE)
 \arguments{
 \item{udf}{A \code{\link{udf}} object}
 
-\item{conn}{A \link[DBI]{DBIConnection-class} object, as returned by \link[DBI]{dbConnect}}
+\item{conn}{A \code{\link[DBI:DBIConnection-class]{DBI::DBIConnection}} object, as returned by
+\code{\link[DBI:dbConnect]{DBI::dbConnect()}}}
 
 \item{cascade}{TODO}
 }
@@ -17,7 +18,7 @@ drop_udf(udf, conn, cascade = FALSE)
 TODO
 }
 \description{
-\code{drop_udf} TODO
+\code{drop_udf()} deletes a UDF
 }
 \examples{
 \dontrun{

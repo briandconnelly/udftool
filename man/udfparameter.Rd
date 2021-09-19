@@ -4,8 +4,8 @@
 \alias{udfparameter}
 \title{User Defined Function (UDF) parameter object}
 \description{
-\code{udfparameter} objects store details about parameters to user-defined functions.
-Each \code{udfparameter} object has the following properties:
+\code{udfparameter} objects store details about parameters to user-defined
+functions. Each \code{udfparameter} object has the following properties:
 
 \describe{
 \item{name}{Parameter's name (e.g., \code{"Sepal.Length"})}

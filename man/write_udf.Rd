@@ -12,7 +12,7 @@ write_udf(x, file, ...)
 \item{file}{either a character string naming a file or a \link{connection}
     open for writing}
 
-\item{...}{Additional arguments passed to \code{\link[yaml]{write_yaml}}}
+\item{...}{Additional arguments passed to \link[`yaml:write_yaml()``]{`yaml::write_yaml()``}}
 }
 \description{
 Write UDF definition file

@@ -1,6 +1,7 @@
 #' User-Defined Function (UDF) object
 #'
-#' \code{udf} objects store the definition of a user-defined function along with metadata and unit tests.
+#' UDF objects store the definition of a user-defined function along with
+#' metadata and unit tests.
 #'
 #' @importFrom R6 R6Class
 #' @importFrom rlang arg_match
@@ -23,19 +24,19 @@ udf <- R6Class(
         .tests = NULL
     ),
     public = list(
-        #' @description Initialize a \code{udf} object
-        #' @param name The UDF's name (e.g., \code{"f_calculate_stuff"})
-        #' @param version A version string (e.g., \code{"1.0"})
-        #' @param returns Data type returned by this UDF (e.g., \code{"float"})
-        #' @param volatility Given the same inputs, the function will always return the same result (\code{"immutable"}), will return the same result during a given statement (\code{"stable"}), may return different results on successive calls (\code{"volatile"}).
-        #' @param language String indicating the language used for the UDF's body (e.g., \code{"sql"})
-        #' @param params A list of zero or more \code{\link{udfparameter}} objects specifying input parameters
+        #' @description Initialize a `md` object
+        #' @param name The UDF's name (e.g., `"f_calculate_stuff"`)
+        #' @param version A version string (e.g., `"1.0"`)
+        #' @param returns Data type returned by this UDF (e.g., `"float"`)
+        #' @param volatility Given the same inputs, the function will always return the same result (`"immutable"`), will return the same result during a given statement (`"stable"`), may return different results on successive calls (`"volatile"`).
+        #' @param language String indicating the language used for the UDF's body (e.g., `"sql"`)
+        #' @param params A list of zero or more [`udfparameter`] objects specifying input parameters
         #' @param body The body of the UDF containing SQL, Python, or other supported language
         #' @param description A detailed description of the UDF
-        #' @param schema Database schema in which to place UDF (defualt: \code{NA})
-        #' @param replace Logical value indicating whether existing versions should be replaced (default: \code{FALSE})
-        #' @param authors List of authors (e.g., \code{list("Jane Doe")})
-        #' @param tests A list of zero or more \code{\link{udftest}} objects specifying test cases for this UDF
+        #' @param schema Database schema in which to place UDF (defualt: `NA`)
+        #' @param replace Logical value indicating whether existing versions should be replaced (default: `FALSE`)
+        #' @param authors List of authors (e.g., `list("Jane Doe")`)
+        #' @param tests A list of zero or more [`udftest`] objects specifying test cases for this UDF
         initialize = function(name,
                               version,
                               returns,
@@ -64,7 +65,7 @@ udf <- R6Class(
             self$schema <- schema
 
             if (!is.logical(replace)) {
-                stop("'replace' parameter must be either TRUE or FALSE")
+                cli::cli_abort("{.arg replace} parameter must be either {.val TRUE} or {.val FALSE}")
             }
             self$replace <- replace
 
@@ -73,7 +74,7 @@ udf <- R6Class(
         },
         #' @description Write UDF definition file
         #' @param File File to write to
-        #' @param ... Additional arguments passed to \code{\link[yaml]{write_yaml}}
+        #' @param ... Additional arguments passed to [yaml::write_yaml()]
         write = function(file, ...) {
             write_yaml(as.list(self), file, ...)
         },
@@ -81,13 +82,13 @@ udf <- R6Class(
             load_udf(udf = self, conn = conn, test = test)
         },
         #' @description Drop (delete) UDF
-        #' @param conn A \link[DBI]{DBIConnection-class} object, as returned by \link[DBI]{dbConnect}
-        #' @param cascade Whether or not to dautomatically rop objects that depend on the UDF (default: \code{FALSE})
+        #' @param conn A [DBI::DBIConnection-class] object, as returned by [DBI::dbConnect()]
+        #' @param cascade Whether or not to dautomatically rop objects that depend on the UDF (default: `FALSE`)
         drop = function(conn, cascade = FALSE) {
             drop_udf(udf = self, conn = conn, cascade = cascade)
         },
         #' @description Run tests TODO
-        #' @param conn A \link[DBI]{DBIConnection-class} object, as returned by \link[DBI]{dbConnect}
+        #' @param conn A [DBI::DBIConnection-class] object, as returned by [DBI::dbConnect()]
         test = function(conn) {
             test_udf(udf = self, conn = conn)
         }
@@ -195,7 +196,7 @@ udf <- R6Class(
                     } else if (self$language == c("plpythonu")) {
                         paste(p$name, tolower(p$type))
                     } else if (self$language == "js") {
-                        stop("'js' not yet supported")
+                        cli::cli_abort("{.val js} not yet supported")
                     }
                 }
             ) %>%
@@ -217,7 +218,7 @@ $$ LANGUAGE {self$language}
 
 
 #' @title Test whether an object is a UDF
-#' @description \code{is_udf} returns \code{TRUE} if the given object is a \code{udf} object or subclass thereof
+#' @description `is_udf` returns `TRUE` if the given object is a UDF object or subclass thereof
 #' @param x An object
 #' @export
 #' @examples
@@ -226,7 +227,7 @@ $$ LANGUAGE {self$language}
 #' is_udf(u1)
 #' }
 is_udf <- function(x) {
-    inherits(x, "udf")
+    rlang::inherits_any(x, "udf")
 }
 
 assertthat::on_failure(is_udf) <- function(call, env) {

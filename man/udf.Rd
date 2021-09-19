@@ -9,7 +9,8 @@ User-Defined Function (UDF) object
 User-Defined Function (UDF) object
 }
 \details{
-\code{udf} objects store the definition of a user-defined function along with metadata and unit tests.
+UDF objects store the definition of a user-defined function along with
+metadata and unit tests.
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -26,7 +27,7 @@ User-Defined Function (UDF) object
 \if{html}{\out{<a id="method-new"></a>}}
 \if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
-Initialize a \code{udf} object
+Initialize a \code{md} object
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{udf$new(
   name,
@@ -87,7 +88,7 @@ Write UDF definition file
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{...}}{Additional arguments passed to \code{\link[yaml]{write_yaml}}}
+\item{\code{...}}{Additional arguments passed to \code{\link[yaml:write_yaml]{yaml::write_yaml()}}}
 
 \item{\code{File}}{File to write to}
 }
@@ -115,7 +116,7 @@ Drop (delete) UDF
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{conn}}{A \link[DBI]{DBIConnection-class} object, as returned by \link[DBI]{dbConnect}}
+\item{\code{conn}}{A \link[DBI:DBIConnection-class]{DBI::DBIConnection} object, as returned by \code{\link[DBI:dbConnect]{DBI::dbConnect()}}}
 
 \item{\code{cascade}}{Whether or not to dautomatically rop objects that depend on the UDF (default: \code{FALSE})}
 }
@@ -134,7 +135,7 @@ Run tests TODO
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{conn}}{A \link[DBI]{DBIConnection-class} object, as returned by \link[DBI]{dbConnect}}
+\item{\code{conn}}{A \link[DBI:DBIConnection-class]{DBI::DBIConnection} object, as returned by \code{\link[DBI:dbConnect]{DBI::dbConnect()}}}
 }
 \if{html}{\out{</div>}}
 }

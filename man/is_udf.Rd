@@ -10,7 +10,7 @@ is_udf(x)
 \item{x}{An object}
 }
 \description{
-\code{is_udf} returns \code{TRUE} if the given object is a \code{udf} object or subclass thereof
+\code{is_udf} returns \code{TRUE} if the given object is a UDF object or subclass thereof
 }
 \examples{
 \dontrun{

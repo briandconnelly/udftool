@@ -1,12 +1,12 @@
 #' Read a UDF definition file
 #'
-#' \code{read_udf} loads a UDF definition from a file. For more information
-#' on the udf object returned, see \code{\link{udf}}.
+#' `read_udf(` loads a UDF definition from a file. For more information
+#' on the udf object returned, see [`udf`].
 #'
 #' @inheritParams yaml::read_yaml
-#' @param ... Additional arguments passed to \code{\link[yaml]{read_yaml}}
+#' @param ... Additional arguments passed to [`yaml::read_yaml`]
 #'
-#' @return A \code{\link{udf}} object representing the UDF
+#' @return A [`udf`] object representing the UDF
 #' @importFrom yaml read_yaml
 #' @export
 #'

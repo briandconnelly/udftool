@@ -12,6 +12,7 @@ Description: Tools for developing, deploying, and maintaining PostgreSQL
 License: MIT + file LICENSE
 Imports: 
     assertthat,
+    cli,
     DBI,
     magrittr,
     R6,

@@ -1,8 +1,8 @@
 #' @title User Defined Function (UDF) unit test object
 #'
 #' @description
-#' \code{udftest} objects store details about unit tests for user-defined functions.
-#' Each \code{udftest} object has the following properties:
+#' `udftest` objects store details about unit tests for user-defined functions.
+#' Each `udftest` object has the following properties:
 #'
 #' \describe{
 #'   \item{query}{Query using the UDF. The UDF's name should be represented by '?' so that name changes are automatically handled. For example, \code{"SELECT ?(21)"}, would call the UDF with input value 21.}
@@ -22,11 +22,11 @@ udftest <- R6Class(
         .example = NULL
     ),
     public = list(
-        #' @description Initialize a new \code{udftest} object
+        #' @description Initialize a new `udftest` object
         #' @param query Query using the UDF
         #' @param expect Expected value returned by the query
         #' @param description Detailed description of the test
-        #' @param example Whether or not to include this test in any generated documentation (default: \code{TRUE})
+        #' @param example Whether or not to include this test in any generated documentation (default: `TRUE`)
         initialize = function(query, expect, description, example = TRUE) {
             self$query <- query
             self$expect <- expect
@@ -94,5 +94,5 @@ as.udftest.list <- function(x) {
 #' @export
 #' @aliases is.udftest
 is_udftest <- function(x) {
-    inherits(x, "udftest")
+    rlang::inherits_any(x, "udftest")
 }
