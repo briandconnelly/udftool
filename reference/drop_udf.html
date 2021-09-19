@@ -40,7 +40,7 @@
 
 
 <meta property="og:title" content="Drop (i.e., delete) a UDF — drop_udf" />
-<meta property="og:description" content="drop_udf TODO" />
+<meta property="og:description" content="drop_udf() deletes a UDF" />
 
 
 
@@ -109,7 +109,7 @@
     </div>
 
     <div class="ref-description">
-    <p><code>drop_udf</code> TODO</p>
+    <p><code>drop_udf()</code> deletes a UDF</p>
     </div>
 
     <pre class="usage"><span class='fu'>drop_udf</span><span class='op'>(</span><span class='va'>udf</span>, <span class='va'>conn</span>, cascade <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
@@ -123,7 +123,8 @@
     </tr>
     <tr>
       <th>conn</th>
-      <td><p>A <a href='https://dbi.r-dbi.org/reference/DBIConnection-class.html'>DBIConnection-class</a> object, as returned by <a href='https://dbi.r-dbi.org/reference/dbConnect.html'>dbConnect</a></p></td>
+      <td><p>A <code><a href='https://dbi.r-dbi.org/reference/DBIConnection-class.html'>DBI::DBIConnection</a></code> object, as returned by
+<code><a href='https://dbi.r-dbi.org/reference/dbConnect.html'>DBI::dbConnect()</a></code></p></td>
     </tr>
     <tr>
       <th>cascade</th>

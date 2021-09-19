@@ -118,7 +118,8 @@ User-Defined Function (UDF) object" />
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p><code>udf</code> objects store the definition of a user-defined function along with metadata and unit tests.</p>
+    <p>UDF objects store the definition of a user-defined function along with
+metadata and unit tests.</p>
     <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
 
     
@@ -134,7 +135,7 @@ User-Defined Function (UDF) object" />
 </ul>
 <p><hr>
 <a id="method-new"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>new()</code></h3>
-<p>Initialize a <code>udf</code> object</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p>Initialize a <code>md</code> object</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
 <p><div class="r"></p><pre><span class='va'>udf</span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span>
   <span class='va'>name</span>,
   <span class='va'>version</span>,
@@ -185,7 +186,7 @@ User-Defined Function (UDF) object" />
 
 <h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
 <p><div class="arguments"></p><dl>
-<dt><code>...</code></dt><dd><p>Additional arguments passed to <code><a href='https://rdrr.io/pkg/yaml/man/write_yaml.html'>write_yaml</a></code></p></dd>
+<dt><code>...</code></dt><dd><p>Additional arguments passed to <code><a href='https://rdrr.io/pkg/yaml/man/write_yaml.html'>yaml::write_yaml()</a></code></p></dd>
 
 <dt><code>File</code></dt><dd><p>File to write to</p></dd>
 
@@ -203,7 +204,7 @@ User-Defined Function (UDF) object" />
 
 <h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
 <p><div class="arguments"></p><dl>
-<dt><code>conn</code></dt><dd><p>A <a href='https://dbi.r-dbi.org/reference/DBIConnection-class.html'>DBIConnection-class</a> object, as returned by <a href='https://dbi.r-dbi.org/reference/dbConnect.html'>dbConnect</a></p></dd>
+<dt><code>conn</code></dt><dd><p>A <a href='https://dbi.r-dbi.org/reference/DBIConnection-class.html'>DBI::DBIConnection</a> object, as returned by <code><a href='https://dbi.r-dbi.org/reference/dbConnect.html'>DBI::dbConnect()</a></code></p></dd>
 
 <dt><code>cascade</code></dt><dd><p>Whether or not to dautomatically rop objects that depend on the UDF (default: <code>FALSE</code>)</p></dd>
 
@@ -215,7 +216,7 @@ User-Defined Function (UDF) object" />
 
 <h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
 <p><div class="arguments"></p><dl>
-<dt><code>conn</code></dt><dd><p>A <a href='https://dbi.r-dbi.org/reference/DBIConnection-class.html'>DBIConnection-class</a> object, as returned by <a href='https://dbi.r-dbi.org/reference/dbConnect.html'>dbConnect</a></p></dd>
+<dt><code>conn</code></dt><dd><p>A <a href='https://dbi.r-dbi.org/reference/DBIConnection-class.html'>DBI::DBIConnection</a> object, as returned by <code><a href='https://dbi.r-dbi.org/reference/dbConnect.html'>DBI::dbConnect()</a></code></p></dd>
 
 </dl><p></div></p>
 <p><hr>
