@@ -7,7 +7,7 @@
 \title{udftool: Tools for managing PostgreSQL user-defined functions}
 \description{
 Tools for developing, deploying, and maintaining PostgreSQL
-    user-defined functions
+    user-defined functions.
 }
 \author{
 \strong{Maintainer}: Brian Connelly \email{bdc@bconnelly.net} (\href{https://orcid.org/0000-0002-9948-0379}{ORCID})

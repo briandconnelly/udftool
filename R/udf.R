@@ -235,7 +235,7 @@ assertthat::on_failure(is_udf) <- function(call, env) {
 }
 
 #' @export
-as.list.udf <- function(x) {
+as.list.udf <- function(x, ...) {
     list(
         name = x$name,
         schema = x$schema,

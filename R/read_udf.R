@@ -4,7 +4,7 @@
 #' on the udf object returned, see [`udf`].
 #'
 #' @inheritParams yaml::read_yaml
-#' @param ... Additional arguments passed to [`yaml::read_yaml`]
+#' @param ... Additional arguments passed to [yaml::read_yaml]
 #'
 #' @return A [`udf`] object representing the UDF
 #' @importFrom yaml read_yaml

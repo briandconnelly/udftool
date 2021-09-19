@@ -10,7 +10,7 @@ read_udf(file, ...)
 \item{file}{either a character string naming a file or a \link{connection}
     open for writing}
 
-\item{...}{Additional arguments passed to \code{\link[yaml:read_yaml]{yaml::read_yaml}}}
+\item{...}{Additional arguments passed to \link[yaml:read_yaml]{yaml::read_yaml}}
 }
 \value{
 A \code{\link{udf}} object representing the UDF

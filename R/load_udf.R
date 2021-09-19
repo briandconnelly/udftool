@@ -25,7 +25,7 @@ load_udf <- function(udf, conn, test = TRUE) {
     tryCatch(
         expr = {
             DBI::dbExecute(
-                con_redshift_ci,
+                conn,
                 statement = udf$create_statement
             )
         },

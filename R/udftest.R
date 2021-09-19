@@ -71,7 +71,7 @@ udftest <- R6Class(
 )
 
 #' @export
-as.list.udftest <- function(x) {
+as.list.udftest <- function(x, ...) {
     list(
         query = x$query,
         expect = x$expect,

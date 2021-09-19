@@ -8,7 +8,7 @@ Authors@R:
            email = "bdc@bconnelly.net",
            comment = c(ORCID = "0000-0002-9948-0379"))
 Description: Tools for developing, deploying, and maintaining PostgreSQL
-    user-defined functions
+    user-defined functions.
 License: MIT + file LICENSE
 Imports: 
     assertthat,

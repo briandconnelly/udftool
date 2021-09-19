@@ -24,7 +24,7 @@ drop_udf <- function(udf, conn, cascade = FALSE) {
     tryCatch(
         expr = {
             DBI::dbSendStatement(
-                con_redshift_ci,
+                conn,
                 statement = drop_stmt
             )
         },

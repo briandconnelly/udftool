@@ -65,7 +65,7 @@ is_udfparameter <- function(x) {
 }
 
 #' @export
-as.list.udfparameter <- function(x) {
+as.list.udfparameter <- function(x, ...) {
     list(
         name = x$name,
         type = x$type,

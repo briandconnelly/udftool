@@ -2,7 +2,7 @@
 #'
 #' @x A [`udf`] object
 #' @inheritParams yaml::write_yaml
-#' @param ... Additional arguments passed to [`yaml::write_yaml()``]
+#' @param ... Additional arguments passed to [yaml::write_yaml()]
 #'
 #' @export
 #'
