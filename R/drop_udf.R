@@ -14,24 +14,24 @@
 #' TODO
 #' }
 drop_udf <- function(udf, conn, cascade = FALSE) {
-    assertthat::assert_that(
-        is_udf(udf),
-        assertthat::is.flag(cascade)
-    )
+  assertthat::assert_that(
+    is_udf(udf),
+    assertthat::is.flag(cascade)
+  )
 
-    drop_stmt <- stringr::str_glue("DROP FUNCTION {udf$signature} {ifelse(cascade, \"CASCADE\", \"RESTRICT\")}")
+  drop_stmt <- stringr::str_glue("DROP FUNCTION {udf$signature} {ifelse(cascade, \"CASCADE\", \"RESTRICT\")}")
 
-    tryCatch(
-        expr = {
-            DBI::dbSendStatement(
-                conn,
-                statement = drop_stmt
-            )
-        },
-        error = function(e) {
-            cli::cli_abort("Error dropping {.file {udf$full_name}}: {e}")
-        }
-    )
+  tryCatch(
+    expr = {
+      DBI::dbSendStatement(
+        conn,
+        statement = drop_stmt
+      )
+    },
+    error = function(e) {
+      cli::cli_abort("Error dropping {.file {udf$full_name}}: {e}")
+    }
+  )
 
-    cli::cli_alert_success("Dropped {.file {udf$full_name}}")
+  cli::cli_alert_success("Dropped {.file {udf$full_name}}")
 }

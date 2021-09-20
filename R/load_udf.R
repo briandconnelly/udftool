@@ -18,24 +18,24 @@
 #' load_udf(my_udf, my_db_connection)
 #' }
 load_udf <- function(udf, conn, test = TRUE) {
-    assertthat::assert_that(
-        is_udf(udf)
-    )
+  assertthat::assert_that(
+    is_udf(udf)
+  )
 
-    tryCatch(
-        expr = {
-            DBI::dbExecute(
-                conn,
-                statement = udf$create_statement
-            )
-        },
-        error = function(e) {
-            cli::cli_abort("Error loading {.file {udf$full_name}}: {e}")
-        }
-    )
-
-    cli::cli_alert_success("Successfully loaded {.file {udf$full_name}}")
-    if (test) {
-        udf$test(conn)
+  tryCatch(
+    expr = {
+      DBI::dbExecute(
+        conn,
+        statement = udf$create_statement
+      )
+    },
+    error = function(e) {
+      cli::cli_abort("Error loading {.file {udf$full_name}}: {e}")
     }
+  )
+
+  cli::cli_alert_success("Successfully loaded {.file {udf$full_name}}")
+  if (test) {
+    udf$test(conn)
+  }
 }

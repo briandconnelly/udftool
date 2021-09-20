@@ -15,26 +15,26 @@
 #' my_udf <- read_udf("my_udf.yaml")
 #' }
 read_udf <- function(file, ...) {
-    raw <- read_yaml(file, ...)
+  raw <- read_yaml(file, ...)
 
-    udf$new(
-        name = raw$name,
-        version = as.character(raw$version),
-        returns = raw$returns,
-        volatility = tolower(raw$volatility),
-        language = tolower(raw$language),
-        params = lapply(
-            raw$params,
-            function(t) as.udfparameter.list(t)
-        ),
-        body = raw$body,
-        description = raw$description,
-        schema = raw$schema,
-        replace = raw$replace,
-        authors = raw$authors,
-        tests = lapply(
-            raw$tests,
-            function(t) as.udftest.list(t)
-        )
+  udf$new(
+    name = raw$name,
+    version = as.character(raw$version),
+    returns = raw$returns,
+    volatility = tolower(raw$volatility),
+    language = tolower(raw$language),
+    params = lapply(
+      raw$params,
+      function(t) as.udfparameter.list(t)
+    ),
+    body = raw$body,
+    description = raw$description,
+    schema = raw$schema,
+    replace = raw$replace,
+    authors = raw$authors,
+    tests = lapply(
+      raw$tests,
+      function(t) as.udftest.list(t)
     )
+  )
 }
