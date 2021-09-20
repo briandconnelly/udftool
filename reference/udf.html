@@ -120,6 +120,22 @@ User-Defined Function (UDF) object" />
     </div>
 
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>...</th>
+      <td><p>Arguments passed on to <code><a href='https://rdrr.io/pkg/yaml/man/write_yaml.html'>yaml::write_yaml</a></code></p><dl>
+    <dt><code>x</code></dt><dd><p>the object to be converted</p></dd>
+    <dt><code>file</code></dt><dd><p>either a character string naming a file or a <a href='https://rdrr.io/r/base/connections.html'>connection</a>
+    open for writing</p></dd>
+    <dt><code>fileEncoding</code></dt><dd><p>character string: if non-empty declares the
+    encoding to be used on a file (not a connection) so the character data can
+    be re-encoded as they are written.  See <code><a href='https://rdrr.io/r/base/connections.html'>file</a></code>.</p></dd>
+  
+</dl></td>
+    </tr>
+    </table>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
@@ -191,23 +207,17 @@ be replaced (default: <code>FALSE</code>)</p></dd>
 <dt><code>tests</code></dt><dd><p>A list of zero or more <code><a href='udftest.html'>udftest</a></code> objects specifying test
 cases for this UDF</p></dd>
 
+<dt><code>...</code></dt><dd><p>Additional arguments (not used)</p></dd>
+
 </dl><p></div></p>
 <p><hr>
 <a id="method-write"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code><a href='https://rdrr.io/r/base/write.html'>write()</a></code></h3>
 <p>Write UDF definition file</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
 <p><div class="r"></p><pre><span class='va'>udf</span><span class='op'>$</span><span class='fu'>write</span><span class='op'>(</span><span class='va'>file</span>, <span class='va'>...</span><span class='op'>)</span></pre><p></div></p>
 
-<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
-<p><div class="arguments"></p><dl>
-<dt><code>...</code></dt><dd><p>Additional arguments passed to <code><a href='https://rdrr.io/pkg/yaml/man/write_yaml.html'>yaml::write_yaml()</a></code></p></dd>
-
-<dt><code>File</code></dt><dd><p>File to write to</p></dd>
-
-</dl><p></div></p>
 <p><hr>
 <a id="method-create"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>create()</code></h3>
-
-<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p>Load a user-defined function</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
 <p><div class="r"></p><pre><span class='va'>udf</span><span class='op'>$</span><span class='fu'>create</span><span class='op'>(</span><span class='va'>conn</span>, test <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre><p></div></p>
 
 <p><hr>
@@ -215,26 +225,11 @@ cases for this UDF</p></dd>
 <p>Drop (delete) UDF</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
 <p><div class="r"></p><pre><span class='va'>udf</span><span class='op'>$</span><span class='fu'>drop</span><span class='op'>(</span><span class='va'>conn</span>, cascade <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre><p></div></p>
 
-<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
-<p><div class="arguments"></p><dl>
-<dt><code>conn</code></dt><dd><p>A <a href='https://dbi.r-dbi.org/reference/DBIConnection-class.html'>DBI::DBIConnection</a> object, as returned by
-<code><a href='https://dbi.r-dbi.org/reference/dbConnect.html'>DBI::dbConnect()</a></code></p></dd>
-
-<dt><code>cascade</code></dt><dd><p>Whether or not to automatically drop objects that depend
-on the UDF (default: <code>FALSE</code>)</p></dd>
-
-</dl><p></div></p>
 <p><hr>
 <a id="method-test"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>test()</code></h3>
-<p>Run tests TODO</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p>Run tests</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
 <p><div class="r"></p><pre><span class='va'>udf</span><span class='op'>$</span><span class='fu'>test</span><span class='op'>(</span><span class='va'>conn</span><span class='op'>)</span></pre><p></div></p>
 
-<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
-<p><div class="arguments"></p><dl>
-<dt><code>conn</code></dt><dd><p>A <a href='https://dbi.r-dbi.org/reference/DBIConnection-class.html'>DBI::DBIConnection</a> object, as returned by
-<code><a href='https://dbi.r-dbi.org/reference/dbConnect.html'>DBI::dbConnect()</a></code></p></dd>
-
-</dl><p></div></p>
 <p><hr>
 <a id="method-clone"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>clone()</code></h3>
 <p>The objects of this class are cloneable with this method.</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
