@@ -40,8 +40,7 @@
 
 
 <meta property="og:title" content="Read a UDF definition file — read_udf" />
-<meta property="og:description" content="read_udf( loads a UDF definition from a file. For more information
-on the udf object returned, see udf." />
+<meta property="og:description" content="read_udf() loads a UDF definition from a file" />
 
 
 
@@ -110,8 +109,7 @@ on the udf object returned, see udf." />
     </div>
 
     <div class="ref-description">
-    <p><code>read_udf(</code> loads a UDF definition from a file. For more information
-on the udf object returned, see <code><a href='udf.html'>udf</a></code>.</p>
+    <p><code>read_udf()</code> loads a UDF definition from a file</p>
     </div>
 
     <pre class="usage"><span class='fu'>read_udf</span><span class='op'>(</span><span class='va'>file</span>, <span class='va'>...</span><span class='op'>)</span></pre>
@@ -126,7 +124,17 @@ on the udf object returned, see <code><a href='udf.html'>udf</a></code>.</p>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Additional arguments passed to <a href='https://rdrr.io/pkg/yaml/man/read_yaml.html'>yaml::read_yaml</a></p></td>
+      <td><p>Arguments passed on to <code><a href='https://rdrr.io/pkg/yaml/man/read_yaml.html'>yaml::read_yaml</a></code></p><dl>
+    <dt><code>fileEncoding</code></dt><dd><p>character string: if non-empty declares the
+    encoding used on a file (not a connection) so the character data can
+    be re-encoded.  See <code><a href='https://rdrr.io/r/base/connections.html'>file</a></code>.</p></dd>
+    <dt><code>text</code></dt><dd><p>character string: if <code>file</code> is not supplied and this is,
+    then data are read from the value of <code>text</code> via a text connection.
+    Notice that a literal string can be used to include (small) data sets
+    within R code.</p></dd>
+    <dt><code>error.label</code></dt><dd><p>a label to prepend to error messages (see Details).</p></dd>
+  
+</dl></td>
     </tr>
     </table>
 

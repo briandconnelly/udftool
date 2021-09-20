@@ -40,7 +40,7 @@
 
 
 <meta property="og:title" content="Write UDF definition file — write_udf" />
-<meta property="og:description" content="Write UDF definition file" />
+<meta property="og:description" content="write_udf() writes a udf object to a file" />
 
 
 
@@ -109,7 +109,7 @@
     </div>
 
     <div class="ref-description">
-    <p>Write UDF definition file</p>
+    <p><code>write_udf()</code> writes a <code><a href='udf.html'>udf</a></code> object to a file</p>
     </div>
 
     <pre class="usage"><span class='fu'>write_udf</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>file</span>, <span class='va'>...</span><span class='op'>)</span></pre>
@@ -119,7 +119,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>the object to be converted</p></td>
+      <td><p>A <code><a href='udf.html'>udf</a></code> object</p></td>
     </tr>
     <tr>
       <th>file</th>
@@ -128,7 +128,12 @@
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Additional arguments passed to <code><a href='https://rdrr.io/pkg/yaml/man/write_yaml.html'>yaml::write_yaml()</a></code></p></td>
+      <td><p>Arguments passed on to <code><a href='https://rdrr.io/pkg/yaml/man/write_yaml.html'>yaml::write_yaml</a></code></p><dl>
+    <dt><code>fileEncoding</code></dt><dd><p>character string: if non-empty declares the
+    encoding to be used on a file (not a connection) so the character data can
+    be re-encoded as they are written.  See <code><a href='https://rdrr.io/r/base/connections.html'>file</a></code>.</p></dd>
+  
+</dl></td>
     </tr>
     </table>
 
