@@ -45,4 +45,9 @@ test_that("generics", {
   expect_true(is.list(as.list(up1)))
   expect_named(as.list(up1))
   expect_setequal(names(as.list(up1)), c("name", "type", "description"))
+
+  up2 <- as.udfparameter.list(
+    list(name = "my_other_udf", type = "INT4", description = "some description")
+  )
+  expect_true(is_udfparameter(up2))
 })
