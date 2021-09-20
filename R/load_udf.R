@@ -19,7 +19,10 @@
 #' }
 load_udf <- function(udf, conn, test = TRUE) {
   assertthat::assert_that(
-    is_udf(udf)
+    is_udf(udf),
+    rlang::inherits_any("DBIConnection"),
+    assertthat::is.flag(test),
+    assertthat::noNA(test)
   )
 
   tryCatch(

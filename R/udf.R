@@ -42,6 +42,7 @@ udf <- R6::R6Class(
     #' @param authors List of authors (e.g., `list("Jane Doe")`)
     #' @param tests A list of zero or more [`udftest`] objects specifying test
     #' cases for this UDF
+    #' @param ... Additional arguments (not used)
     initialize = function(name,
                           version,
                           returns,
@@ -78,25 +79,23 @@ udf <- R6::R6Class(
       self$tests <- tests
     },
     #' @description Write UDF definition file
-    #' @param File File to write to
-    #' @param ... Additional arguments passed to [yaml::write_yaml()]
+    #' @inheritParams write_udf
+    #' @inheritDotParams yaml::write_yaml
     write = function(file, ...) {
       yaml::write_yaml(as.list(self), file, ...)
     },
+    #' @description Load a user-defined function
+    #' @inheritParams load_udf
     create = function(conn, test = TRUE) {
       load_udf(udf = self, conn = conn, test = test)
     },
     #' @description Drop (delete) UDF
-    #' @param conn A [DBI::DBIConnection-class] object, as returned by
-    #' [DBI::dbConnect()]
-    #' @param cascade Whether or not to automatically drop objects that depend
-    #' on the UDF (default: `FALSE`)
+    #' @inheritParams drop_udf
     drop = function(conn, cascade = FALSE) {
       drop_udf(udf = self, conn = conn, cascade = cascade)
     },
-    #' @description Run tests TODO
-    #' @param conn A [DBI::DBIConnection-class] object, as returned by
-    #' [DBI::dbConnect()]
+    #' @description Run tests
+    #' @inheritParams test_udf
     test = function(conn) {
       test_udf(udf = self, conn = conn)
     }

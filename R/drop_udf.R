@@ -17,7 +17,8 @@
 drop_udf <- function(udf, conn, cascade = FALSE) {
   assertthat::assert_that(
     is_udf(udf),
-    assertthat::is.flag(cascade)
+    assertthat::is.flag(cascade),
+    assertthat::noNA(cascade)
   )
 
   drop_stmt <- stringr::str_glue("DROP FUNCTION {udf$signature} {ifelse(cascade, \"CASCADE\", \"RESTRICT\")}")

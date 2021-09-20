@@ -65,6 +65,7 @@ udftest <- R6::R6Class(
         private$.expect <- x
       }
     },
+    #' @description HELLO
     description = function(x) {
       if (missing(x)) {
         private$.description
@@ -72,6 +73,7 @@ udftest <- R6::R6Class(
         private$.description <- x
       }
     },
+    #' @description TODO
     example = function(x) {
       if (missing(x)) {
         private$.example
@@ -79,6 +81,7 @@ udftest <- R6::R6Class(
         private$.example <- x
       }
     },
+    #' @description Produce a string used to show an example of a function's use
     example_string = function() {
       stringr::str_glue("{self$query}; -> {self$expect}")
     }

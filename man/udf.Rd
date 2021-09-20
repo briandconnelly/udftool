@@ -3,6 +3,18 @@
 \name{udf}
 \alias{udf}
 \title{User-Defined Function (UDF) object}
+\arguments{
+\item{...}{
+  Arguments passed on to \code{\link[yaml:write_yaml]{yaml::write_yaml}}
+  \describe{
+    \item{\code{x}}{the object to be converted}
+    \item{\code{file}}{either a character string naming a file or a \link{connection}
+    open for writing}
+    \item{\code{fileEncoding}}{character string: if non-empty declares the
+    encoding to be used on a file (not a connection) so the character data can
+    be re-encoded as they are written.  See \code{\link{file}}.}
+  }}
+}
 \description{
 User-Defined Function (UDF) object
 
@@ -80,6 +92,8 @@ be replaced (default: \code{FALSE})}
 
 \item{\code{tests}}{A list of zero or more \code{\link{udftest}} objects specifying test
 cases for this UDF}
+
+\item{\code{...}}{Additional arguments (not used)}
 }
 \if{html}{\out{</div>}}
 }
@@ -93,20 +107,12 @@ Write UDF definition file
 \if{html}{\out{<div class="r">}}\preformatted{udf$write(file, ...)}\if{html}{\out{</div>}}
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{...}}{Additional arguments passed to \code{\link[yaml:write_yaml]{yaml::write_yaml()}}}
-
-\item{\code{File}}{File to write to}
-}
-\if{html}{\out{</div>}}
-}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-create"></a>}}
 \if{latex}{\out{\hypertarget{method-create}{}}}
 \subsection{Method \code{create()}}{
+Load a user-defined function
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{udf$create(conn, test = TRUE)}\if{html}{\out{</div>}}
 }
@@ -121,35 +127,16 @@ Drop (delete) UDF
 \if{html}{\out{<div class="r">}}\preformatted{udf$drop(conn, cascade = FALSE)}\if{html}{\out{</div>}}
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{conn}}{A \link[DBI:DBIConnection-class]{DBI::DBIConnection} object, as returned by
-\code{\link[DBI:dbConnect]{DBI::dbConnect()}}}
-
-\item{\code{cascade}}{Whether or not to automatically drop objects that depend
-on the UDF (default: \code{FALSE})}
-}
-\if{html}{\out{</div>}}
-}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-test"></a>}}
 \if{latex}{\out{\hypertarget{method-test}{}}}
 \subsection{Method \code{test()}}{
-Run tests TODO
+Run tests
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{udf$test(conn)}\if{html}{\out{</div>}}
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{conn}}{A \link[DBI:DBIConnection-class]{DBI::DBIConnection} object, as returned by
-\code{\link[DBI:dbConnect]{DBI::dbConnect()}}}
-}
-\if{html}{\out{</div>}}
-}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}
