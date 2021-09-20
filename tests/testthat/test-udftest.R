@@ -43,6 +43,7 @@ test_that("object created properly", {
   expect_true(is.character(ut1$query))
   expect_true(is.character(ut1$description))
   expect_true(is.logical(ut1$example))
+  expect_true(is.character(ut1$example_string))
 })
 
 
