@@ -43,13 +43,17 @@
 <meta property="og:description" content="udftest objects store details about unit tests for user-defined functions.
 Each udftest object has the following properties:
 
-queryQuery using the UDF. The UDF's name should be represented by '?' so that name changes are automatically handled. For example, &quot;SELECT ?(21)&quot;, would call the UDF with input value 21.
+queryQuery using the UDF. The UDF's name should be represented by
+'?' so that name changes are automatically handled. For example,
+&quot;SELECT ?(21)&quot;, would call the UDF with input value 21.
 expectExpected value returned by the query
 descriptionDetailed description of the test
-exampleWhether or not to include this test in any generated documentation
+exampleWhether or not to include this test in any generated
+documentation
 
 
-" />
+
+is_udftest checks if an object is a udftest object" />
 
 
 
@@ -121,16 +125,29 @@ exampleWhether or not to include this test in any generated documentation
     <p><code>udftest</code> objects store details about unit tests for user-defined functions.
 Each <code>udftest</code> object has the following properties:</p>
 <dl>
-<dt>query</dt><dd><p>Query using the UDF. The UDF's name should be represented by '?' so that name changes are automatically handled. For example, <code>"SELECT ?(21)"</code>, would call the UDF with input value 21.</p></dd>
+<dt>query</dt><dd><p>Query using the UDF. The UDF's name should be represented by
+'?' so that name changes are automatically handled. For example,
+<code>"SELECT ?(21)"</code>, would call the UDF with input value 21.</p></dd>
 <dt>expect</dt><dd><p>Expected value returned by the query</p></dd>
 <dt>description</dt><dd><p>Detailed description of the test</p></dd>
-<dt>example</dt><dd><p>Whether or not to include this test in any generated documentation</p></dd>
+<dt>example</dt><dd><p>Whether or not to include this test in any generated
+documentation</p></dd>
 
 </dl>
 
+<p><code>is_udftest</code> checks if an object is a <code>udftest</code> object</p>
     </div>
 
+    <pre class="usage"><span class='fu'>is_udftest</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>An object</p></td>
+    </tr>
+    </table>
 
     <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
 
@@ -154,7 +171,8 @@ Each <code>udftest</code> object has the following properties:</p>
 
 <dt><code>description</code></dt><dd><p>Detailed description of the test</p></dd>
 
-<dt><code>example</code></dt><dd><p>Whether or not to include this test in any generated documentation (default: <code>TRUE</code>)</p></dd>
+<dt><code>example</code></dt><dd><p>Whether or not to include this test in any generated
+documentation (default: <code>TRUE</code>)</p></dd>
 
 </dl><p></div></p>
 <p><hr>
