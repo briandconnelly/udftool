@@ -5,8 +5,8 @@
 #' functions. Each `udfparameter` object has the following properties:
 #'
 #' \describe{
-#'   \item{name}{Parameter's name (e.g., \code{"Sepal.Length"})}
-#'   \item{type}{Parameter's data type (e.g., \code{FLOAT})}
+#'   \item{name}{Parameter's name (e.g., `"Sepal.Length"`)}
+#'   \item{type}{Parameter's data type (e.g., `"FLOAT"`)}
 #'   \item{description}{Detailed description of the parameter}
 #' }
 #'
@@ -18,9 +18,9 @@ udfparameter <- R6::R6Class(
     .type = NULL,
     .description = NULL
   ),
-  #' @description Initialize a new \code{udfparameter} object
-  #' @param name The parameter's name (e.g., "Sepal.Length"")
-  #' @param type The parameter's data type (e.g., "FLOAT")
+  #' @description Initialize a new `udfparameter` object
+  #' @param name The parameter's name (e.g., `"Sepal.Length"`)
+  #' @param type The parameter's data type (e.g., `"FLOAT")`
   #' @param description A description of the parameter
   public = list(
     initialize = function(name, type, description) {

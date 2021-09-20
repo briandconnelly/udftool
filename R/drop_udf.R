@@ -1,12 +1,13 @@
-#' @title Drop (i.e., delete) a UDF
+#' @title Drop a UDF
 #'
 #' @description
-#' `drop_udf()` deletes a UDF
+#' `drop_udf()` deletes a UDF from the given database
 #'
 #' @inheritParams load_udf
-#' @param cascade TODO
+#' @param cascade Whether to automatically drop objects that depend on the
+#' function (default: `FALSE`)
 #'
-#' @return TODO
+#' @return `TRUE`, invisibly, if successful
 #' @export
 #'
 #' @examples
@@ -34,4 +35,5 @@ drop_udf <- function(udf, conn, cascade = FALSE) {
   )
 
   cli::cli_alert_success("Dropped {.file {udf$full_name}}")
+  invisible(TRUE)
 }

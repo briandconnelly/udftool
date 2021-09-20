@@ -13,7 +13,7 @@ test_udf(udf, conn)
 \code{\link[DBI:dbConnect]{DBI::dbConnect()}}}
 }
 \description{
-\code{test_udf()} TODO
+\code{test_udf()} runs all tests associated with a given UDF.
 }
 \examples{
 \dontrun{

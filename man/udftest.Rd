@@ -24,7 +24,7 @@ Each \code{udftest} object has the following properties:
 documentation}
 }
 
-\code{is_udftest} checks if an object is a \code{udftest} object
+\code{is_udftest()} checks if an object is a \code{udftest} object
 }
 \section{Methods}{
 \subsection{Public methods}{

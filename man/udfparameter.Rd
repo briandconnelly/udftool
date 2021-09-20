@@ -9,7 +9,7 @@ functions. Each \code{udfparameter} object has the following properties:
 
 \describe{
 \item{name}{Parameter's name (e.g., \code{"Sepal.Length"})}
-\item{type}{Parameter's data type (e.g., \code{FLOAT})}
+\item{type}{Parameter's data type (e.g., \code{"FLOAT"})}
 \item{description}{Detailed description of the parameter}
 }
 }
@@ -32,9 +32,9 @@ Initialize a new \code{udfparameter} object
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{name}}{The parameter's name (e.g., "Sepal.Length"")}
+\item{\code{name}}{The parameter's name (e.g., \code{"Sepal.Length"})}
 
-\item{\code{type}}{The parameter's data type (e.g., "FLOAT")}
+\item{\code{type}}{The parameter's data type (e.g., \verb{"FLOAT")}}
 
 \item{\code{description}}{A description of the parameter}
 }

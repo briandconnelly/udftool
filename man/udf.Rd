@@ -27,7 +27,7 @@ metadata and unit tests.
 \if{html}{\out{<a id="method-new"></a>}}
 \if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
-Initialize a \code{md} object
+Initialize a \code{udf} object
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{udf$new(
   name,

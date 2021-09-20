@@ -1,7 +1,7 @@
 #' @title Run a UDF's tests
 #'
 #' @description
-#' `test_udf()` TODO
+#' `test_udf()` runs all tests associated with a given UDF.
 #'
 #' @inheritParams load_udf
 #'

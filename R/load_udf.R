@@ -1,8 +1,8 @@
-#' @title Load (i.e., create) a user-defined function
+#' @title Load a user-defined function
 #'
 #' @description
 #' `load_udf()` executes a `CREATE FUNCTION` statement to load a user-defined
-#' function on a given database server.
+#' function onto a given database server.
 #'
 #' @param udf A [`udf`] object
 #' @param conn A [`DBI::DBIConnection-class`] object, as returned by

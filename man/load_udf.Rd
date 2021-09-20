@@ -2,7 +2,7 @@
 % Please edit documentation in R/load_udf.R
 \name{load_udf}
 \alias{load_udf}
-\title{Load (i.e., create) a user-defined function}
+\title{Load a user-defined function}
 \usage{
 load_udf(udf, conn, test = TRUE)
 }
@@ -16,7 +16,7 @@ load_udf(udf, conn, test = TRUE)
 }
 \description{
 \code{load_udf()} executes a \verb{CREATE FUNCTION} statement to load a user-defined
-function on a given database server.
+function onto a given database server.
 }
 \examples{
 \dontrun{

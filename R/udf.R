@@ -21,7 +21,7 @@ udf <- R6::R6Class(
     .tests = NULL
   ),
   public = list(
-    #' @description Initialize a `md` object
+    #' @description Initialize a `udf` object
     #' @param name The UDF's name (e.g., `"f_calculate_stuff"`)
     #' @param version A version string (e.g., `"1.0"`)
     #' @param returns Data type returned by this UDF (e.g., `"float"`)

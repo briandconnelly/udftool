@@ -2,7 +2,7 @@
 % Please edit documentation in R/drop_udf.R
 \name{drop_udf}
 \alias{drop_udf}
-\title{Drop (i.e., delete) a UDF}
+\title{Drop a UDF}
 \usage{
 drop_udf(udf, conn, cascade = FALSE)
 }
@@ -12,13 +12,14 @@ drop_udf(udf, conn, cascade = FALSE)
 \item{conn}{A \code{\link[DBI:DBIConnection-class]{DBI::DBIConnection}} object, as returned by
 \code{\link[DBI:dbConnect]{DBI::dbConnect()}}}
 
-\item{cascade}{TODO}
+\item{cascade}{Whether to automatically drop objects that depend on the
+function (default: \code{FALSE})}
 }
 \value{
-TODO
+\code{TRUE}, invisibly, if successful
 }
 \description{
-\code{drop_udf()} deletes a UDF
+\code{drop_udf()} deletes a UDF from the given database
 }
 \examples{
 \dontrun{

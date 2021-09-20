@@ -9,6 +9,8 @@ Authors@R:
            comment = c(ORCID = "0000-0002-9948-0379"))
 Description: Tools for developing, deploying, and maintaining PostgreSQL
     user-defined functions.
+URL: https://briandconnelly.github.io/udftool,
+    https://github.com/briandconnelly/udftool
 License: MIT + file LICENSE
 Imports: 
     assertthat,

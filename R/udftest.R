@@ -7,7 +7,7 @@
 #' \describe{
 #'   \item{query}{Query using the UDF. The UDF's name should be represented by
 #'   '?' so that name changes are automatically handled. For example,
-#'   \code{"SELECT ?(21)"}, would call the UDF with input value 21.}
+#'   `"SELECT ?(21)"`, would call the UDF with input value 21.}
 #'   \item{expect}{Expected value returned by the query}
 #'   \item{description}{Detailed description of the test}
 #'   \item{example}{Whether or not to include this test in any generated
@@ -87,7 +87,7 @@ udftest <- R6::R6Class(
 
 
 #' @rdname udftest
-#' @description `is_udftest` checks if an object is a `udftest` object
+#' @description `is_udftest()` checks if an object is a `udftest` object
 #' @param x An object
 #' @export
 is_udftest <- function(x) {

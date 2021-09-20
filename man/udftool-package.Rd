@@ -9,6 +9,14 @@
 Tools for developing, deploying, and maintaining PostgreSQL
     user-defined functions.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://briandconnelly.github.io/udftool}
+  \item \url{https://github.com/briandconnelly/udftool}
+}
+
+}
 \author{
 \strong{Maintainer}: Brian Connelly \email{bdc@bconnelly.net} (\href{https://orcid.org/0000-0002-9948-0379}{ORCID})
 
