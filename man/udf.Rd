@@ -33,8 +33,8 @@ Initialize a \code{md} object
   name,
   version,
   returns,
-  volatility,
-  language,
+  volatility = c("volatile", "stable", "immutable"),
+  language = c("sql", "plpythonu"),
   params = list(),
   body,
   description,
@@ -55,23 +55,31 @@ Initialize a \code{md} object
 
 \item{\code{returns}}{Data type returned by this UDF (e.g., \code{"float"})}
 
-\item{\code{volatility}}{Given the same inputs, the function will always return the same result (\code{"immutable"}), will return the same result during a given statement (\code{"stable"}), may return different results on successive calls (\code{"volatile"}).}
+\item{\code{volatility}}{Given the same inputs, the function will always return
+the same result (\code{"immutable"}), will return the same result during a
+given statement (\code{"stable"}), may return different results on successive
+calls (\code{"volatile"}).}
 
-\item{\code{language}}{String indicating the language used for the UDF's body (e.g., \code{"sql"})}
+\item{\code{language}}{String indicating the language used for the UDF's body
+(e.g., \code{"sql"})}
 
-\item{\code{params}}{A list of zero or more \code{\link{udfparameter}} objects specifying input parameters}
+\item{\code{params}}{A list of zero or more \code{\link{udfparameter}} objects specifying
+input parameters}
 
-\item{\code{body}}{The body of the UDF containing SQL, Python, or other supported language}
+\item{\code{body}}{The body of the UDF containing SQL, Python, or other
+supported language}
 
 \item{\code{description}}{A detailed description of the UDF}
 
 \item{\code{schema}}{Database schema in which to place UDF (defualt: \code{NA})}
 
-\item{\code{replace}}{Logical value indicating whether existing versions should be replaced (default: \code{FALSE})}
+\item{\code{replace}}{Logical value indicating whether existing versions should
+be replaced (default: \code{FALSE})}
 
 \item{\code{authors}}{List of authors (e.g., \code{list("Jane Doe")})}
 
-\item{\code{tests}}{A list of zero or more \code{\link{udftest}} objects specifying test cases for this UDF}
+\item{\code{tests}}{A list of zero or more \code{\link{udftest}} objects specifying test
+cases for this UDF}
 }
 \if{html}{\out{</div>}}
 }
@@ -116,9 +124,11 @@ Drop (delete) UDF
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{conn}}{A \link[DBI:DBIConnection-class]{DBI::DBIConnection} object, as returned by \code{\link[DBI:dbConnect]{DBI::dbConnect()}}}
+\item{\code{conn}}{A \link[DBI:DBIConnection-class]{DBI::DBIConnection} object, as returned by
+\code{\link[DBI:dbConnect]{DBI::dbConnect()}}}
 
-\item{\code{cascade}}{Whether or not to dautomatically rop objects that depend on the UDF (default: \code{FALSE})}
+\item{\code{cascade}}{Whether or not to automatically drop objects that depend
+on the UDF (default: \code{FALSE})}
 }
 \if{html}{\out{</div>}}
 }
@@ -135,7 +145,8 @@ Run tests TODO
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{conn}}{A \link[DBI:DBIConnection-class]{DBI::DBIConnection} object, as returned by \code{\link[DBI:dbConnect]{DBI::dbConnect()}}}
+\item{\code{conn}}{A \link[DBI:DBIConnection-class]{DBI::DBIConnection} object, as returned by
+\code{\link[DBI:dbConnect]{DBI::dbConnect()}}}
 }
 \if{html}{\out{</div>}}
 }

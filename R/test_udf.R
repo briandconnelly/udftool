@@ -60,7 +60,10 @@ test_udf <- function(udf, conn) {
   cli_end()
 
   cli_div(
-    theme = list(.pass = list(color = "green", "font-weight" = "bold"), .fail = list(color = "red", "font-weight" = "bold"))
+    theme = list(
+      .pass = list(color = "green", "font-weight" = "bold"),
+      .fail = list(color = "red", "font-weight" = "bold")
+    )
   )
   cli_par()
   cli_text("{.pass {num_passed}} test{?s} passed, {.fail {num_failed}} failed")

@@ -2,17 +2,30 @@
 % Please edit documentation in R/udftest.R
 \name{udftest}
 \alias{udftest}
+\alias{is_udftest}
+\alias{is.udftest}
 \title{User Defined Function (UDF) unit test object}
+\usage{
+is_udftest(x)
+}
+\arguments{
+\item{x}{An object}
+}
 \description{
 \code{udftest} objects store details about unit tests for user-defined functions.
 Each \code{udftest} object has the following properties:
 
 \describe{
-\item{query}{Query using the UDF. The UDF's name should be represented by '?' so that name changes are automatically handled. For example, \code{"SELECT ?(21)"}, would call the UDF with input value 21.}
+\item{query}{Query using the UDF. The UDF's name should be represented by
+'?' so that name changes are automatically handled. For example,
+\code{"SELECT ?(21)"}, would call the UDF with input value 21.}
 \item{expect}{Expected value returned by the query}
 \item{description}{Detailed description of the test}
-\item{example}{Whether or not to include this test in any generated documentation}
+\item{example}{Whether or not to include this test in any generated
+documentation}
 }
+
+\code{is_udftest} checks if an object is a \code{udftest} object
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -39,7 +52,8 @@ Initialize a new \code{udftest} object
 
 \item{\code{description}}{Detailed description of the test}
 
-\item{\code{example}}{Whether or not to include this test in any generated documentation (default: \code{TRUE})}
+\item{\code{example}}{Whether or not to include this test in any generated
+documentation (default: \code{TRUE})}
 }
 \if{html}{\out{</div>}}
 }

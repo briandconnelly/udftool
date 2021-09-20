@@ -10,5 +10,6 @@ is_udfparameter(x)
 \item{x}{An object}
 }
 \description{
-\code{is_udfparameter} returns \code{TRUE} if the given object is a \code{udfparameter} object or subclass thereof
+\code{is_udfparameter()} returns \code{TRUE} if the given object
+is a \code{udfparameter} object or subclass thereof
 }

@@ -15,11 +15,11 @@ test_that("constructor input validation", {
   expect_error(valid_udfparameter(type = TRUE))
   expect_error(valid_udfparameter(type = ""))
   expect_error(valid_udfparameter(type = NA_character_))
-  expect_error(valid_udfparameter(name = c("INT4", "FLOAT")))
+  expect_error(valid_udfparameter(type = c("INT4", "FLOAT")))
   expect_error(valid_udfparameter(description = TRUE))
   expect_error(valid_udfparameter(description = ""))
   expect_error(valid_udfparameter(description = NA_character_))
-  expect_error(valid_udfparameter(name = c("desc1", "desc2")))
+  expect_error(valid_udfparameter(description = c("desc1", "desc2")))
 })
 
 test_that("object created properly", {

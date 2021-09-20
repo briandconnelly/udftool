@@ -5,10 +5,13 @@
 #' Each `udftest` object has the following properties:
 #'
 #' \describe{
-#'   \item{query}{Query using the UDF. The UDF's name should be represented by '?' so that name changes are automatically handled. For example, \code{"SELECT ?(21)"}, would call the UDF with input value 21.}
+#'   \item{query}{Query using the UDF. The UDF's name should be represented by
+#'   '?' so that name changes are automatically handled. For example,
+#'   \code{"SELECT ?(21)"}, would call the UDF with input value 21.}
 #'   \item{expect}{Expected value returned by the query}
 #'   \item{description}{Detailed description of the test}
-#'   \item{example}{Whether or not to include this test in any generated documentation}
+#'   \item{example}{Whether or not to include this test in any generated
+#'   documentation}
 #' }
 #'
 #' @importFrom R6 R6Class
@@ -26,8 +29,22 @@ udftest <- R6Class(
     #' @param query Query using the UDF
     #' @param expect Expected value returned by the query
     #' @param description Detailed description of the test
-    #' @param example Whether or not to include this test in any generated documentation (default: `TRUE`)
+    #' @param example Whether or not to include this test in any generated
+    #' documentation (default: `TRUE`)
     initialize = function(query, expect, description, example = TRUE) {
+      assertthat::assert_that(
+        assertthat::is.string(query),
+        assertthat::noNA(query),
+        nchar(query) > 1,
+        assertthat::is.scalar(expect),
+        assertthat::noNA(expect),
+        assertthat::is.string(description),
+        assertthat::noNA(description),
+        nchar(description) > 1,
+        assertthat::is.flag(example),
+        assertthat::noNA(example)
+      )
+
       self$query <- query
       self$expect <- expect
       self$description <- description
@@ -54,7 +71,6 @@ udftest <- R6Class(
         private$.description
       } else {
         private$.description <- x
-        # private[[".description"]] <- x
       }
     },
     example = function(x) {
@@ -70,18 +86,18 @@ udftest <- R6Class(
   )
 )
 
+
+#' @rdname udftest
+#' @description `is_udftest` checks if an object is a `udftest` object
+#' @param x An object
 #' @export
-as.list.udftest <- function(x, ...) {
-  list(
-    query = x$query,
-    expect = x$expect,
-    description = x$description,
-    example = x$example
-  )
+#' @aliases is.udftest
+is_udftest <- function(x) {
+  rlang::inherits_any(x, "udftest")
 }
 
 
-#' @export
+# Create a udftest object from a list
 as.udftest.list <- function(x) {
   udftest$new(
     description = x$description,
@@ -91,8 +107,14 @@ as.udftest.list <- function(x) {
   )
 }
 
+
+# Create a list from a udftest object
 #' @export
-#' @aliases is.udftest
-is_udftest <- function(x) {
-  rlang::inherits_any(x, "udftest")
+as.list.udftest <- function(x, ...) {
+  list(
+    query = x$query,
+    expect = x$expect,
+    description = x$description,
+    example = x$example
+  )
 }

@@ -28,20 +28,28 @@ udf <- R6Class(
     #' @param name The UDF's name (e.g., `"f_calculate_stuff"`)
     #' @param version A version string (e.g., `"1.0"`)
     #' @param returns Data type returned by this UDF (e.g., `"float"`)
-    #' @param volatility Given the same inputs, the function will always return the same result (`"immutable"`), will return the same result during a given statement (`"stable"`), may return different results on successive calls (`"volatile"`).
-    #' @param language String indicating the language used for the UDF's body (e.g., `"sql"`)
-    #' @param params A list of zero or more [`udfparameter`] objects specifying input parameters
-    #' @param body The body of the UDF containing SQL, Python, or other supported language
+    #' @param volatility Given the same inputs, the function will always return
+    #' the same result (`"immutable"`), will return the same result during a
+    #' given statement (`"stable"`), may return different results on successive
+    #' calls (`"volatile"`).
+    #' @param language String indicating the language used for the UDF's body
+    #' (e.g., `"sql"`)
+    #' @param params A list of zero or more [`udfparameter`] objects specifying
+    #' input parameters
+    #' @param body The body of the UDF containing SQL, Python, or other
+    #' supported language
     #' @param description A detailed description of the UDF
     #' @param schema Database schema in which to place UDF (defualt: `NA`)
-    #' @param replace Logical value indicating whether existing versions should be replaced (default: `FALSE`)
+    #' @param replace Logical value indicating whether existing versions should
+    #' be replaced (default: `FALSE`)
     #' @param authors List of authors (e.g., `list("Jane Doe")`)
-    #' @param tests A list of zero or more [`udftest`] objects specifying test cases for this UDF
+    #' @param tests A list of zero or more [`udftest`] objects specifying test
+    #' cases for this UDF
     initialize = function(name,
                           version,
                           returns,
-                          volatility,
-                          language,
+                          volatility = c("volatile", "stable", "immutable"),
+                          language = c("sql", "plpythonu"),
                           params = list(),
                           body,
                           description,
@@ -54,8 +62,8 @@ udf <- R6Class(
       self$version <- version
       self$returns <- returns
 
-      self$volatility <- arg_match(volatility, c("volatile", "stable", "immutable"))
-      self$language <- arg_match(language, c("sql", "plpythonu", "js"))
+      self$volatility <- arg_match(volatility)
+      self$language <- arg_match(language)
 
       # TODO: make sure params is either a udfparameter object or a list of them
       self$params <- params
@@ -82,13 +90,16 @@ udf <- R6Class(
       load_udf(udf = self, conn = conn, test = test)
     },
     #' @description Drop (delete) UDF
-    #' @param conn A [DBI::DBIConnection-class] object, as returned by [DBI::dbConnect()]
-    #' @param cascade Whether or not to dautomatically rop objects that depend on the UDF (default: `FALSE`)
+    #' @param conn A [DBI::DBIConnection-class] object, as returned by
+    #' [DBI::dbConnect()]
+    #' @param cascade Whether or not to automatically drop objects that depend
+    #' on the UDF (default: `FALSE`)
     drop = function(conn, cascade = FALSE) {
       drop_udf(udf = self, conn = conn, cascade = cascade)
     },
     #' @description Run tests TODO
-    #' @param conn A [DBI::DBIConnection-class] object, as returned by [DBI::dbConnect()]
+    #' @param conn A [DBI::DBIConnection-class] object, as returned by
+    #' [DBI::dbConnect()]
     test = function(conn) {
       test_udf(udf = self, conn = conn)
     }
@@ -218,7 +229,8 @@ $$ LANGUAGE {self$language}
 
 
 #' @title Test whether an object is a UDF
-#' @description `is_udf` returns `TRUE` if the given object is a UDF object or subclass thereof
+#' @description `is_udf` returns `TRUE` if the given object is a UDF object or
+#' subclass thereof
 #' @param x An object
 #' @export
 #' @examples

@@ -68,13 +68,16 @@ udfparameter <- R6Class(
 
 
 #' @title Test whether an object is a UDF parameter
-#' @description \code{is_udfparameter} returns \code{TRUE} if the given object is a \code{udfparameter} object or subclass thereof
+#' @description `is_udfparameter()` returns `TRUE` if the given object
+#' is a `udfparameter` object or subclass thereof
 #' @param x An object
 #' @export
 is_udfparameter <- function(x) {
   rlang::inherits_any(x, "udfparameter")
 }
 
+
+# Create a list from a udfparameter object
 #' @export
 as.list.udfparameter <- function(x, ...) {
   list(
@@ -85,7 +88,7 @@ as.list.udfparameter <- function(x, ...) {
 }
 
 
-#' @export
+# Create a udfparameter from a list
 as.udfparameter.list <- function(x) {
   udfparameter$new(
     name = x$name,
