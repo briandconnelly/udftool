@@ -4,6 +4,8 @@ valid_udfparameter <- function(name = "my_udf",
   udfparameter$new(name = name, type = type, description = description)
 }
 
+up1 <- valid_udfparameter()
+
 test_that("constructor input validation", {
   expect_error(udfparameter$new())
   expect_error(valid_udfparameter(name = TRUE))
@@ -23,7 +25,6 @@ test_that("constructor input validation", {
 test_that("object created properly", {
   testthat::expect_true(R6::is.R6Class(udfparameter))
 
-  up1 <- valid_udfparameter()
   expect_true(is_udfparameter(up1))
   expect_named(up1)
   expect_true(all(c("type", "name", "description") %in% names(up1)))
