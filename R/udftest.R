@@ -14,9 +14,8 @@
 #'   documentation}
 #' }
 #'
-#' @importFrom R6 R6Class
 #' @export
-udftest <- R6Class(
+udftest <- R6::R6Class(
   classname = "udftest",
   private = list(
     .query = NULL,
@@ -91,7 +90,6 @@ udftest <- R6Class(
 #' @description `is_udftest` checks if an object is a `udftest` object
 #' @param x An object
 #' @export
-#' @aliases is.udftest
 is_udftest <- function(x) {
   rlang::inherits_any(x, "udftest")
 }

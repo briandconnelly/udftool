@@ -10,14 +10,24 @@ read_udf(file, ...)
 \item{file}{either a character string naming a file or a \link{connection}
     open for writing}
 
-\item{...}{Additional arguments passed to \link[yaml:read_yaml]{yaml::read_yaml}}
+\item{...}{
+  Arguments passed on to \code{\link[yaml:read_yaml]{yaml::read_yaml}}
+  \describe{
+    \item{\code{fileEncoding}}{character string: if non-empty declares the
+    encoding used on a file (not a connection) so the character data can
+    be re-encoded.  See \code{\link{file}}.}
+    \item{\code{text}}{character string: if \code{file} is not supplied and this is,
+    then data are read from the value of \code{text} via a text connection.
+    Notice that a literal string can be used to include (small) data sets
+    within R code.}
+    \item{\code{error.label}}{a label to prepend to error messages (see Details).}
+  }}
 }
 \value{
 A \code{\link{udf}} object representing the UDF
 }
 \description{
-\verb{read_udf(} loads a UDF definition from a file. For more information
-on the udf object returned, see \code{\link{udf}}.
+\code{read_udf()} loads a UDF definition from a file
 }
 \examples{
 \dontrun{

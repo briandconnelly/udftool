@@ -10,9 +10,8 @@
 #'   \item{description}{Detailed description of the parameter}
 #' }
 #'
-#' @importFrom R6 R6Class
 #' @export
-udfparameter <- R6Class(
+udfparameter <- R6::R6Class(
   classname = "udfparameter",
   private = list(
     .name = NULL,

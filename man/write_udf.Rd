@@ -7,15 +7,21 @@
 write_udf(x, file, ...)
 }
 \arguments{
-\item{x}{the object to be converted}
+\item{x}{A \code{\link{udf}} object}
 
 \item{file}{either a character string naming a file or a \link{connection}
     open for writing}
 
-\item{...}{Additional arguments passed to \code{\link[yaml:write_yaml]{yaml::write_yaml()}}}
+\item{...}{
+  Arguments passed on to \code{\link[yaml:write_yaml]{yaml::write_yaml}}
+  \describe{
+    \item{\code{fileEncoding}}{character string: if non-empty declares the
+    encoding to be used on a file (not a connection) so the character data can
+    be re-encoded as they are written.  See \code{\link{file}}.}
+  }}
 }
 \description{
-Write UDF definition file
+\code{write_udf()} writes a \code{\link{udf}} object to a file
 }
 \examples{
 \dontrun{

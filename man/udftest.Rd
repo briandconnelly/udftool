@@ -3,7 +3,6 @@
 \name{udftest}
 \alias{udftest}
 \alias{is_udftest}
-\alias{is.udftest}
 \title{User Defined Function (UDF) unit test object}
 \usage{
 is_udftest(x)

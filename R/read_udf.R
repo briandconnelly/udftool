@@ -1,13 +1,11 @@
 #' Read a UDF definition file
 #'
-#' `read_udf(` loads a UDF definition from a file. For more information
-#' on the udf object returned, see [`udf`].
+#' `read_udf()` loads a UDF definition from a file
 #'
 #' @inheritParams yaml::read_yaml
-#' @param ... Additional arguments passed to [yaml::read_yaml]
+#' @inheritDotParams yaml::read_yaml
 #'
 #' @return A [`udf`] object representing the UDF
-#' @importFrom yaml read_yaml
 #' @export
 #'
 #' @examples
@@ -15,7 +13,7 @@
 #' my_udf <- read_udf("my_udf.yaml")
 #' }
 read_udf <- function(file, ...) {
-  raw <- read_yaml(file, ...)
+  raw <- yaml::read_yaml(file, ...)
 
   udf$new(
     name = raw$name,

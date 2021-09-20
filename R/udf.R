@@ -3,11 +3,8 @@
 #' UDF objects store the definition of a user-defined function along with
 #' metadata and unit tests.
 #'
-#' @importFrom R6 R6Class
-#' @importFrom rlang arg_match
-#' @importFrom yaml write_yaml
 #' @export
-udf <- R6Class(
+udf <- R6::R6Class(
   classname = "udf",
   private = list(
     .name = NULL,
@@ -62,8 +59,8 @@ udf <- R6Class(
       self$version <- version
       self$returns <- returns
 
-      self$volatility <- arg_match(volatility)
-      self$language <- arg_match(language)
+      self$volatility <- rlang::arg_match(volatility)
+      self$language <- rlang::arg_match(language)
 
       # TODO: make sure params is either a udfparameter object or a list of them
       self$params <- params
@@ -84,7 +81,7 @@ udf <- R6Class(
     #' @param File File to write to
     #' @param ... Additional arguments passed to [yaml::write_yaml()]
     write = function(file, ...) {
-      write_yaml(as.list(self), file, ...)
+      yaml::write_yaml(as.list(self), file, ...)
     },
     create = function(conn, test = TRUE) {
       load_udf(udf = self, conn = conn, test = test)
