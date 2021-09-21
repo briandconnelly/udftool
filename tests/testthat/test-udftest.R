@@ -25,7 +25,6 @@ test_that("constructor input validation", {
   expect_error(valid_udftest(expect = NA_character_))
   expect_error(valid_udftest(expect = c(1, 2)))
   expect_error(valid_udftest(description = TRUE))
-  expect_error(valid_udftest(description = ""))
   expect_error(valid_udftest(description = NA_character_))
   expect_error(valid_udftest(description = c("desc1", "desc2")))
 })

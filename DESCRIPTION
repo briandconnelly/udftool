@@ -13,7 +13,7 @@ URL: https://briandconnelly.github.io/udftool,
     https://github.com/briandconnelly/udftool
 License: MIT + file LICENSE
 Imports: 
-    assertthat,
+    checkmate,
     cli,
     DBI,
     magrittr,

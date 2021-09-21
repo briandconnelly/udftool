@@ -238,9 +238,6 @@ is_udf <- function(x) {
   rlang::inherits_any(x, "udf")
 }
 
-assertthat::on_failure(is_udf) <- function(call, env) {
-  paste0(deparse(call$x), " is not a valid udf object")
-}
 
 #' @export
 as.list.udf <- function(x, ...) {

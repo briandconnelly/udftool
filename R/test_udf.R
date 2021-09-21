@@ -13,9 +13,7 @@
 #' TODO
 #' }
 test_udf <- function(udf, conn) {
-  assertthat::assert_that(
-    is_udf(udf)
-  )
+  checkmate::assert_true(is_udf(udf))
 
   cli_h1("Testing {udf$full_name}")
 
