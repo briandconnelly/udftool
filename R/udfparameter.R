@@ -24,17 +24,10 @@ udfparameter <- R6::R6Class(
   #' @param description A description of the parameter
   public = list(
     initialize = function(name, type, description) {
-      assertthat::assert_that(
-        assertthat::is.string(name),
-        assertthat::noNA(name),
-        nchar(name) > 1,
-        assertthat::is.string(type),
-        assertthat::noNA(type),
-        nchar(type) > 1,
-        assertthat::is.string(description),
-        assertthat::noNA(description),
-        nchar(description) > 1
-      )
+      checkmate::assert_string(name, min.chars = 1)
+      checkmate::assert_string(type)
+      checkmate::assert_string(description)
+
       self$name <- name
       self$type <- type
       self$description <- description

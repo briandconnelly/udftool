@@ -31,18 +31,10 @@ udftest <- R6::R6Class(
     #' @param example Whether or not to include this test in any generated
     #' documentation (default: `TRUE`)
     initialize = function(query, expect, description, example = TRUE) {
-      assertthat::assert_that(
-        assertthat::is.string(query),
-        assertthat::noNA(query),
-        nchar(query) > 1,
-        assertthat::is.scalar(expect),
-        assertthat::noNA(expect),
-        assertthat::is.string(description),
-        assertthat::noNA(description),
-        nchar(description) > 1,
-        assertthat::is.flag(example),
-        assertthat::noNA(example)
-      )
+      checkmate::assert_string(query, min.chars = 1)
+      checkmate::assert_scalar(expect)
+      checkmate::assert_string(description, min.chars = 1)
+      checkmate::assert_flag(example)
 
       self$query <- query
       self$expect <- expect

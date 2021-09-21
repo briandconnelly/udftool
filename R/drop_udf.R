@@ -15,11 +15,9 @@
 #' TODO
 #' }
 drop_udf <- function(udf, conn, cascade = FALSE) {
-  assertthat::assert_that(
-    is_udf(udf),
-    assertthat::is.flag(cascade),
-    assertthat::noNA(cascade)
-  )
+  checkmate::assert_true(is_udf(udf))
+  checkmate::assert_true(rlang::inherits_any("DBIConnection"))
+  checkmate::assert_flag(cascade)
 
   drop_stmt <- stringr::str_glue("DROP FUNCTION {udf$signature} {ifelse(cascade, \"CASCADE\", \"RESTRICT\")}")
 
